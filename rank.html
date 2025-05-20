@@ -1,28 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Rank - RacketRoyale</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELO Rank Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 8px;
+      text-align: center;
+    }
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      background-color: #0078d4;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #result {
+      margin-top: 25px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="logo">Racket<span>Royale</span></div>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="leaderboard.html">Leaderboard</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                    <li><a href="rank.html" class="active">Rank/Elo</a></li>
-                    <li><a href="support.html">Support</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <section class="container">
-        <h1>Rank/Elo System</h1>
-        <p>Details about the ELO system and rankings go here.</p>
-    </section>
+
+  <h1>ELO Rank Calculator</h1>
+  
+  <input type="number" id="currentElo" placeholder="Current ELO" min="0" />
+  <br />
+  <input type="number" id="pointsToAdd" placeholder="Points to Add" />
+  <br />
+  <button onclick="calculateRank()">Calculate Rank</button>
+
+  <div id="result"></div>
+
+  <script>
+    function getRankByELO(elo) {
+      const ranks = [
+        { name: "Bronze", minELO: 0, maxELO: 499, emoji: "🟫" },
+        { name: "Silver", minELO: 500, maxELO: 699, emoji: "⚪" },
+        { name: "Gold", minELO: 700, maxELO: 899, emoji: "🟡" },
+        { name: "Platinum", minELO: 900, maxELO: 1099, emoji: "🔷" },
+        { name: "Emerald", minELO: 1100, maxELO: 1299, emoji: "💚" },
+        { name: "Diamond", minELO: 1300, maxELO: 1499, emoji: "💎" },
+        { name: "Champion", minELO: 1500, maxELO: Infinity, emoji: "👑" },
+      ];
+      const rank = ranks.find(r => elo >= r.minELO && elo <= r.maxELO);
+      return rank || { name: "Unranked", emoji: "", minELO: 0, maxELO: 0 };
+    }
+
+    function calculateRank() {
+      const currentElo = Number(document.getElementById('currentElo').value);
+      const pointsToAdd = Number(document.getElementById('pointsToAdd').value);
+
+      if (isNaN(currentElo) || currentElo < 0) {
+        alert('Please enter a valid current ELO (0 or higher).');
+        return;
+      }
+      if (isNaN(pointsToAdd)) {
+        alert('Please enter valid points to add (can be negative).');
+        return;
+      }
+
+      const newElo = Math.max(0, currentElo + pointsToAdd);
+      const rank = getRankByELO(newElo);
+
+      document.getElementById('result').textContent = 
+        `${rank.emoji} ${rank.name} (ELO: ${newElo})`;
+    }
+  </script>
+  
 </body>
 </html>
