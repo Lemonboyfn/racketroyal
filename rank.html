@@ -1,93 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ELO Rank Calculator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 400px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f4f4f4;
-      border-radius: 8px;
-      text-align: center;
-    }
-    input[type="number"] {
-      padding: 10px;
-      font-size: 16px;
-      width: 80%;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px 25px;
-      font-size: 16px;
-      background-color: #0078d4;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005fa3;
-    }
-    #result {
-      margin-top: 25px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ELO to Rank Table</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+  }
+  td {
+    padding: 10px 8px;
+  }
+  td.rank-name {
+    font-weight: 600;
+  }
+  td.emoji-left, td.emoji-right {
+    width: 30px;
+    text-align: center;
+  }
+  td.elo-range {
+    text-align: center;
+    font-family: monospace;
+  }
+</style>
 </head>
 <body>
 
-  <h1>ELO Rank Calculator</h1>
-  
-  <input type="number" id="currentElo" placeholder="Current ELO" min="0" />
-  <br />
-  <input type="number" id="pointsToAdd" placeholder="Points to Add" />
-  <br />
-  <button onclick="calculateRank()">Calculate Rank</button>
+<h2>ELO to Rank System</h2>
 
-  <div id="result"></div>
+<table>
+  <tr>
+    <td class="emoji-left">🟫</td>
+    <td class="rank-name">Bronze</td>
+    <td class="elo-range">0 - 499</td>
+    <td class="emoji-right">🟫</td>
+  </tr>
+  <tr>
+    <td class="emoji-left">⚪</td>
+    <td class="rank-name">Silver</td>
+    <td class="elo-range">500 - 699</td>
+    <td class="emoji-right">⚪</td>
+  </tr>
+  <tr>
+    <td class="emoji-left">🟡</td>
+    <td class="rank-name">Gold</td>
+    <td class="elo-range">700 - 899</td>
+    <td class="emoji-right">🟡</td>
+  </tr>
+  <tr>
+    <td class="emoji-left">🔷</td>
+    <td class="rank-name">Platinum</td>
+    <td class="elo-range">900 - 1099</td>
+    <td class="emoji-right">🔷</td>
+  </tr>
+  <tr>
+    <td class="emoji-left">💚</td>
+    <td class="rank-name">Emerald</td>
+    <td class="elo-range">1100 - 1299</td>
+    <td class="emoji-right">💚</td>
+  </tr>
+  <tr>
+    <td class="emoji-left">💎</td>
+    <td class="rank-name">Diamond</td>
+    <td class="elo-range">1300 - 1499</td>
+    <td class="emoji-right">💎</td>
+  </tr>
+  <tr>
+    <td class="emoji-left">👑</td>
+    <td class="rank-name">Champion</td>
+    <td class="elo-range">1500+</td>
+    <td class="emoji-right">👑</td>
+  </tr>
+</table>
 
-  <script>
-    function getRankByELO(elo) {
-      const ranks = [
-        { name: "Bronze", minELO: 0, maxELO: 499, emoji: "🟫" },
-        { name: "Silver", minELO: 500, maxELO: 699, emoji: "⚪" },
-        { name: "Gold", minELO: 700, maxELO: 899, emoji: "🟡" },
-        { name: "Platinum", minELO: 900, maxELO: 1099, emoji: "🔷" },
-        { name: "Emerald", minELO: 1100, maxELO: 1299, emoji: "💚" },
-        { name: "Diamond", minELO: 1300, maxELO: 1499, emoji: "💎" },
-        { name: "Champion", minELO: 1500, maxELO: Infinity, emoji: "👑" },
-      ];
-      const rank = ranks.find(r => elo >= r.minELO && elo <= r.maxELO);
-      return rank || { name: "Unranked", emoji: "", minELO: 0, maxELO: 0 };
-    }
-
-    function calculateRank() {
-      const currentElo = Number(document.getElementById('currentElo').value);
-      const pointsToAdd = Number(document.getElementById('pointsToAdd').value);
-
-      if (isNaN(currentElo) || currentElo < 0) {
-        alert('Please enter a valid current ELO (0 or higher).');
-        return;
-      }
-      if (isNaN(pointsToAdd)) {
-        alert('Please enter valid points to add (can be negative).');
-        return;
-      }
-
-      const newElo = Math.max(0, currentElo + pointsToAdd);
-      const rank = getRankByELO(newElo);
-
-      document.getElementById('result').textContent = 
-        `${rank.emoji} ${rank.name} (ELO: ${newElo})`;
-    }
-  </script>
-  
 </body>
 </html>
