@@ -14,20 +14,14 @@
       color: #fff;
     }
 
-    /* NAVBAR STYLING */
+    /* Navbar */
     .navbar {
-      width: 100%;
       background-color: #000;
-      border-bottom: 2px solid #d00000;
-    }
-
-    .navbar .container {
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 24px;
-      max-width: 1200px;
-      margin: 0 auto;
+      border-bottom: 2px solid #d00000;
     }
 
     .logo {
@@ -40,55 +34,59 @@
       color: #d00000;
     }
 
-    .navbar ul {
-      list-style: none;
+    .nav-links {
       display: flex;
-      gap: 16px;
-      margin: 0;
-      padding: 0;
+      gap: 20px;
     }
 
-    .navbar ul li a {
-      text-decoration: none;
+    .nav-links a {
       color: white;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: background 0.2s ease;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: 0.3s ease;
       font-weight: 500;
     }
 
-    .navbar ul li a:hover,
-    .navbar ul li a.active {
+    .nav-links a:hover,
+    .nav-links a.active {
       background-color: #d00000;
+      color: white;
     }
 
-    /* SUPPORT FORM BOX */
+    /* Centered Support Form */
+    .support-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
     .support-box {
-      max-width: 600px;
-      margin: 60px auto;
       background-color: #111;
-      padding: 32px;
-      border-radius: 10px;
       border: 2px solid #d00000;
+      border-radius: 12px;
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
     }
 
     .support-box label {
       display: block;
       margin-bottom: 8px;
-      font-weight: bold;
       color: #d00000;
+      font-weight: bold;
     }
 
     .support-box input,
     .support-box textarea {
       width: 100%;
       padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #333;
       background-color: #222;
+      border: 1px solid #333;
       color: white;
       border-radius: 6px;
-      font-size: 1rem;
+      margin-bottom: 20px;
     }
 
     .support-box button {
@@ -96,12 +94,11 @@
       padding: 14px;
       background-color: #d00000;
       color: white;
-      font-size: 1rem;
-      font-weight: bold;
       border: none;
       border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
 
     .support-box button:hover {
@@ -111,34 +108,33 @@
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo">Racket<span>Royale</span></div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="rank.html">Rank/Elo</a></li>
-        <li><a href="support.html" class="active">Support</a></li>
-      </ul>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">Racket<span>Royale</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="rank.html">Rank/Elo</a>
+      <a href="support.html" class="active">Support</a>
     </div>
-  </nav>
+  </div>
 
-  <!-- SUPPORT FORM -->
-  <section class="support-box">
-    <form id="support-form">
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" placeholder="Subject..." required />
+  <!-- Support Form -->
+  <div class="support-wrapper">
+    <div class="support-box">
+      <form id="support-form">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject..." required />
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
 
-      <button type="submit">Send Email</button>
-    </form>
-  </section>
+        <button type="submit">Send Email</button>
+      </form>
+    </div>
+  </div>
 
-  <!-- SCRIPT -->
   <script>
     document.getElementById("support-form").addEventListener("submit", function (e) {
       e.preventDefault();
