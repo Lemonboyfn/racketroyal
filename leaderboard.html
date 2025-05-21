@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
         }
         .navbar {
             background-color: #222;
@@ -50,6 +51,7 @@
             flex-direction: column;
             gap: 0.75em;
         }
+        .leaderboard-header,
         .leaderboard-item {
             display: flex;
             justify-content: space-between;
@@ -59,17 +61,21 @@
             border: 1px solid #ccc;
             border-radius: 10px;
             font-size: 1.1em;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .leaderboard-header {
+            font-weight: bold;
+            background-color: #eee;
         }
         .rank {
-            font-weight: bold;
-            width: 40px;
+            width: 120px;
+            text-align: center;
         }
         .name {
-            flex-grow: 1;
-            padding-left: 1em;
+            flex: 1;
         }
         .elo {
+            width: 80px;
+            text-align: right;
             font-family: monospace;
         }
     </style>
@@ -90,13 +96,27 @@
 
     <section class="container">
         <h1>🏆 Top 200 Leaderboard</h1>
-        <div id="leaderboard" class="leaderboard">
-            <!-- Filled dynamically with JavaScript -->
+        <div class="leaderboard">
+            <div class="leaderboard-header">
+                <div class="name">Name</div>
+                <div class="rank">Rank</div>
+                <div class="elo">ELO</div>
+            </div>
+            <div id="leaderboard"></div>
         </div>
     </section>
 
     <script>
-        // Replace this with Firebase data later
+        function getRank(elo) {
+            if (elo >= 1500) return "👑 Champion";
+            if (elo >= 1300) return "🔷 Diamond";
+            if (elo >= 1100) return "💚 Emerald";
+            if (elo >= 900)  return "💎 Platinum";
+            if (elo >= 700)  return "🥇 Gold";
+            if (elo >= 500)  return "🥈 Silver";
+            return "🟤 Bronze";
+        }
+
         const leaderboardData = Array.from({ length: 200 }, (_, i) => ({
             name: `Player${i + 1}`,
             elo: Math.floor(Math.random() * 1000) + 500
@@ -104,12 +124,12 @@
 
         const leaderboardElement = document.getElementById('leaderboard');
 
-        leaderboardData.forEach((player, index) => {
+        leaderboardData.forEach((player) => {
             const item = document.createElement('div');
             item.className = 'leaderboard-item';
             item.innerHTML = `
-                <div class="rank">#${index + 1}</div>
                 <div class="name">${player.name}</div>
+                <div class="rank">${getRank(player.elo)}</div>
                 <div class="elo">${player.elo}</div>
             `;
             leaderboardElement.appendChild(item);
