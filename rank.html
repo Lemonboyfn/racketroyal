@@ -4,25 +4,89 @@
     <meta charset="UTF-8" />
     <title>Rank - RacketRoyale</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #222;
+            padding: 1em 0;
+            color: #fff;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo span {
+            color: #00BFFF;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid #00BFFF;
+        }
+        .container {
+            padding: 2em;
+        }
+        .rank-list {
+            margin-top: 2em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+        }
+        .rank-item {
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="logo">Racket<span>Royale</span></div>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="leaderboard.html">Leaderboard</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                    <li><a href="rank.html" class="active">Rank/Elo</a></li>
-                    <li><a href="support.html">Support</a></li>
-                </ul>
-            </div>
+            <div class="logo">Racket<span>Royale</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="rank.html" class="active">Rank/Elo</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
         </div>
     </nav>
+
     <section class="container">
-        <h1>Rank/Elo System</h1>
-        <p>Details about the ELO system and rankings go here.</p>
+        <h1>🏅 Rank/Elo System</h1>
+        <p>Climb the ladder! Your ELO goes up as you win. Compete for glory and unlock higher ranks:</p>
+
+        <div class="rank-list">
+            <div class="rank-item">🟤 Bronze (0 - 499)</div>
+            <div class="rank-item">🥈 Silver (500 - 699)</div>
+            <div class="rank-item">🥇 Gold (700 - 899)</div>
+            <div class="rank-item">💎 Platinum (900 - 1099)</div>
+            <div class="rank-item">💚 Emerald (1100 - 1299)</div>
+            <div class="rank-item">🔷 Diamond (1300 - 1499)</div>
+            <div class="rank-item">👑 Champion (1500+)</div>
+        </div>
     </section>
 </body>
 </html>
