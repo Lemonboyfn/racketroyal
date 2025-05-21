@@ -15,19 +15,8 @@
 
     section.container {
       max-width: 900px;
-      margin: 80px auto 60px auto; /* space below navbar */
+      margin: 100px auto;
       padding: 0 1.5rem;
-    }
-
-    h1.page-title {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #fff;
-      border-bottom: 4px solid #d00000;
-      width: fit-content;
-      padding-bottom: 6px;
-      user-select: none;
     }
 
     form.support-form {
@@ -39,6 +28,7 @@
       max-width: 600px;
       width: 100%;
       color: #fff;
+      margin: 0 auto;
     }
 
     form.support-form label {
@@ -46,7 +36,6 @@
       font-weight: 600;
       color: #d00000;
       margin-bottom: 0.5rem;
-      user-select: none;
     }
 
     form.support-form input,
@@ -69,7 +58,6 @@
       outline: none;
       border-color: #d00000;
       background-color: #2a2a2a;
-      color: #fff;
     }
 
     form.support-form button {
@@ -82,25 +70,23 @@
       padding: 14px 0;
       cursor: pointer;
       width: 100%;
-      letter-spacing: 0.02em;
-      transition: background-color 0.3s ease;
       font-family: 'Montserrat', sans-serif;
+      transition: background-color 0.3s ease;
     }
 
-    form.support-form button:hover,
-    form.support-form button:focus {
+    form.support-form button:hover {
       background-color: #a30000;
-      outline: none;
     }
   </style>
 </head>
 <body>
-  <!-- NAVBAR exactly like on leaderboard.html -->
+
+  <!-- EXACT navbar structure from leaderboard.html -->
   <nav class="navbar">
     <div class="container">
-      <div class="row justify-content-between align-items-center">
+      <div class="navbar-content">
         <div class="logo">Racket<span>Royale</span></div>
-        <ul>
+        <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="leaderboard.html">Leaderboard</a></li>
           <li><a href="calendar.html">Calendar</a></li>
@@ -112,25 +98,12 @@
   </nav>
 
   <section class="container">
-    <h1 class="page-title">Support</h1>
     <form class="support-form" id="support-form" autocomplete="off">
       <label for="subject">Subject</label>
-      <input
-        type="text"
-        id="subject"
-        name="subject"
-        placeholder="Enter the subject"
-        required
-      />
+      <input type="text" id="subject" name="subject" placeholder="Enter the subject" required />
 
       <label for="message">Message</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="6"
-        placeholder="Write your message here"
-        required
-      ></textarea>
+      <textarea id="message" name="message" rows="6" placeholder="Write your message here" required></textarea>
 
       <button type="submit">Send Email</button>
     </form>
@@ -140,12 +113,8 @@
     document.getElementById("support-form").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const subject = encodeURIComponent(
-        document.getElementById("subject").value.trim()
-      );
-      const message = encodeURIComponent(
-        document.getElementById("message").value.trim()
-      );
+      const subject = encodeURIComponent(document.getElementById("subject").value.trim());
+      const message = encodeURIComponent(document.getElementById("message").value.trim());
 
       if (!subject || !message) {
         alert("Please fill out both the subject and the message.");
@@ -156,5 +125,6 @@
       window.location.href = mailtoLink;
     });
   </script>
+
 </body>
 </html>
