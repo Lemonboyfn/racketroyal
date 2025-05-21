@@ -1,11 +1,119 @@
-import { getFirestore, collection, query, orderBy, limit, getDocs } from "firebase/firestore";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Leaderboard - RacketRoyale</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #222;
+            padding: 1em 0;
+            color: #fff;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo span {
+            color: #00BFFF;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid #00BFFF;
+        }
+        .container {
+            padding: 2em;
+        }
+        h1 {
+            margin-bottom: 1em;
+        }
+        .leaderboard {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75em;
+        }
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .rank {
+            font-weight: bold;
+            width: 40px;
+        }
+        .name {
+            flex-grow: 1;
+            padding-left: 1em;
+        }
+        .elo {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Racket<span>Royale</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="rank.html">Rank/Elo</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
 
-const db = getFirestore();
-const q = query(collection(db, "players"), orderBy("elo", "desc"), limit(200));
+    <section class="container">
+        <h1>🏆 Top 200 Leaderboard</h1>
+        <div id="leaderboard" class="leaderboard">
+            <!-- Filled dynamically with JavaScript -->
+        </div>
+    </section>
 
-getDocs(q).then(snapshot => {
-    snapshot.forEach(doc => {
-        const player = doc.data();
-        // add to leaderboard
-    });
-});
+    <script>
+        // Replace this with Firebase data later
+        const leaderboardData = Array.from({ length: 200 }, (_, i) => ({
+            name: `Player${i + 1}`,
+            elo: Math.floor(Math.random() * 1000) + 500
+        })).sort((a, b) => b.elo - a.elo);
+
+        const leaderboardElement = document.getElementById('leaderboard');
+
+        leaderboardData.forEach((player, index) => {
+            const item = document.createElement('div');
+            item.className = 'leaderboard-item';
+            item.innerHTML = `
+                <div class="rank">#${index + 1}</div>
+                <div class="name">${player.name}</div>
+                <div class="elo">${player.elo}</div>
+            `;
+            leaderboardElement.appendChild(item);
+        });
+    </script>
+</body>
+</html>
