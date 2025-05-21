@@ -5,94 +5,87 @@
   <title>Support - RacketRoyale</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Reset and body */
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Arial', sans-serif;
       background-color: #fff;
       color: #000;
     }
 
-    /* Navbar */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
     .navbar {
       background-color: #d00000;
-      padding: 16px 0;
+      padding: 1rem 0;
     }
 
     .navbar .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: bold;
-      color: #fff;
+      color: white;
     }
 
     .logo span {
-      color: #fff;
+      color: white;
     }
 
     .navbar ul {
       list-style: none;
       display: flex;
       gap: 20px;
-      padding: 0;
       margin: 0;
+      padding: 0;
     }
 
     .navbar ul li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      transition: opacity 0.2s;
     }
 
-    .navbar ul li a:hover,
     .navbar ul li a.active {
-      opacity: 0.7;
+      text-decoration: underline;
     }
 
-    /* Main container */
-    .main-content {
-      width: 90%;
-      max-width: 800px;
-      margin: 50px auto;
+    h1 {
+      color: #d00000;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
       text-align: center;
     }
 
-    .main-content h1 {
-      font-size: 36px;
-      color: #d00000;
-      margin-bottom: 10px;
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
     }
 
-    .main-content p {
-      font-size: 18px;
-      color: #333;
-      margin-bottom: 30px;
-    }
-
-    /* Support Form */
     .support-form {
       background-color: #fff;
-      padding: 30px;
       border: 2px solid #d00000;
+      padding: 30px;
+      margin: 40px auto 0 auto;
+      max-width: 600px;
       border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      text-align: left;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
     .support-form label {
+      display: block;
       font-weight: bold;
       color: #d00000;
-      margin-top: 15px;
-      display: block;
+      margin-top: 20px;
     }
 
     .support-form input,
@@ -100,20 +93,21 @@
       width: 100%;
       padding: 10px;
       margin-top: 5px;
-      margin-bottom: 20px;
+      font-size: 1rem;
       border: 1px solid #ccc;
       border-radius: 6px;
-      font-size: 16px;
+      background-color: #f9f9f9;
     }
 
     .support-form button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: bold;
       background-color: #d00000;
       color: white;
       border: none;
-      padding: 12px 24px;
       border-radius: 6px;
-      font-size: 16px;
-      font-weight: bold;
       cursor: pointer;
     }
 
@@ -136,7 +130,7 @@
     </div>
   </nav>
 
-  <div class="main-content">
+  <section class="container">
     <h1>Support</h1>
     <p>Need help? Send us a message below and we’ll get back to you shortly.</p>
 
@@ -151,7 +145,7 @@
         <button type="submit">Send Email</button>
       </form>
     </div>
-  </div>
+  </section>
 
   <script>
     document.getElementById('support-form').addEventListener('submit', function (e) {
