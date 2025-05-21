@@ -6,92 +6,109 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #0a0a0a;
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
     }
+
     .navbar {
-      background-color: #111;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       padding: 1em 0;
-      color: #fff;
     }
+
     .navbar .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 2em;
     }
+
     .logo {
       font-size: 24px;
       font-weight: bold;
     }
+
     .logo span {
       color: #00BFFF;
     }
+
     .navbar ul {
       list-style: none;
       display: flex;
       gap: 20px;
+      padding: 0;
+      margin: 0;
     }
+
     .navbar ul li a {
-      color: white;
+      color: #333;
       text-decoration: none;
+      font-weight: 500;
     }
+
     .navbar ul li a.active {
       border-bottom: 2px solid #00BFFF;
+      padding-bottom: 2px;
     }
+
     .container {
-      background-color: #1a1a1a;
-      border-radius: 12px;
-      padding: 2em;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2em auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      padding: 2em;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+
     h1 {
-      margin-bottom: 1em;
-      color: #fff;
+      text-align: center;
+      margin-bottom: 1.5em;
     }
+
     .leaderboard {
       display: flex;
       flex-direction: column;
-      gap: 0.75em;
+      gap: 0.5em;
     }
+
     .leaderboard-header,
     .leaderboard-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em 1.5em;
+      padding: 1em;
       border-radius: 10px;
-      font-size: 1.1em;
     }
+
     .leaderboard-header {
       font-weight: bold;
-      background-color: #2a2a2a;
-      border: 1px solid #444;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
     }
+
     .leaderboard-item {
-      background-color: #1f1f1f;
-      border: 1px solid #333;
-      color: #ddd;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      background-color: #fafafa;
+      border: 1px solid #eee;
       transition: background-color 0.2s ease;
     }
+
     .leaderboard-item:hover {
-      background-color: #2b2b2b;
+      background-color: #f3faff;
     }
-    .rank {
-      width: 120px;
-      text-align: center;
-    }
+
     .name {
       flex: 1;
     }
+
+    .rank {
+      width: 150px;
+      text-align: center;
+    }
+
     .elo {
-      width: 80px;
+      width: 100px;
       text-align: right;
       font-family: monospace;
     }
