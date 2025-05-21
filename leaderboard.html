@@ -1,173 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Leaderboard - RacketRoyale</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-
-    .navbar {
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      padding: 1em 0;
-    }
-
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2em;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #00BFFF;
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .navbar ul li a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .navbar ul li a.active {
-      border-bottom: 2px solid #00BFFF;
-      padding-bottom: 2px;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 2em auto;
-      padding: 2em;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 1.5em;
-    }
-
-    .leaderboard {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5em;
-    }
-
-    .leaderboard-header,
-    .leaderboard-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1em;
-      border-radius: 10px;
-    }
-
-    .leaderboard-header {
-      font-weight: bold;
-      background-color: #f0f0f0;
-      border: 1px solid #ddd;
-    }
-
-    .leaderboard-item {
-      background-color: #fafafa;
-      border: 1px solid #eee;
-      transition: background-color 0.2s ease;
-    }
-
-    .leaderboard-item:hover {
-      background-color: #f3faff;
-    }
-
-    .name {
-      flex: 1;
-    }
-
-    .rank {
-      width: 150px;
-      text-align: center;
-    }
-
-    .elo {
-      width: 100px;
-      text-align: right;
-      font-family: monospace;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <title>Leaderboard - RacketRoyale</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #222;
+            padding: 1em 0;
+            color: #fff;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo span {
+            color: #00BFFF;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .navbar ul li a.active {
+            border-bottom: 2px solid #00BFFF;
+        }
+        .container {
+            padding: 2em;
+        }
+        h1 {
+            margin-bottom: 1em;
+        }
+        .leaderboard {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75em;
+        }
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .rank {
+            font-weight: bold;
+            width: 40px;
+        }
+        .name {
+            flex-grow: 1;
+            padding-left: 1em;
+        }
+        .elo {
+            font-family: monospace;
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo">Racket<span>Royale</span></div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="rank.html">Rank/Elo</a></li>
-        <li><a href="support.html">Support</a></li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Racket<span>Royale</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="rank.html">Rank/Elo</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <section class="container">
-    <h1>🏆 Top 200 Leaderboard</h1>
-    <div class="leaderboard">
-      <div class="leaderboard-header">
-        <div class="name">Name</div>
-        <div class="rank">Rank</div>
-        <div class="elo">ELO</div>
-      </div>
-      <div id="leaderboard"></div>
-    </div>
-  </section>
+    <section class="container">
+        <h1>🏆 Top 200 Leaderboard</h1>
+        <div id="leaderboard" class="leaderboard">
+            <!-- Filled dynamically with JavaScript -->
+        </div>
+    </section>
 
-  <script>
-    function getRank(elo) {
-      if (elo >= 1500) return "👑 Champion";
-      if (elo >= 1300) return "🔷 Diamond";
-      if (elo >= 1100) return "💚 Emerald";
-      if (elo >= 900)  return "💎 Platinum";
-      if (elo >= 700)  return "🥇 Gold";
-      if (elo >= 500)  return "🥈 Silver";
-      return "🟤 Bronze";
-    }
+    <script>
+        // Replace this with Firebase data later
+        const leaderboardData = Array.from({ length: 200 }, (_, i) => ({
+            name: `Player${i + 1}`,
+            elo: Math.floor(Math.random() * 1000) + 500
+        })).sort((a, b) => b.elo - a.elo);
 
-    const leaderboardData = Array.from({ length: 200 }, (_, i) => ({
-      name: `Player${i + 1}`,
-      elo: Math.floor(Math.random() * 1000) + 500
-    })).sort((a, b) => b.elo - a.elo);
+        const leaderboardElement = document.getElementById('leaderboard');
 
-    const leaderboardElement = document.getElementById('leaderboard');
-
-    leaderboardData.forEach((player) => {
-      const item = document.createElement('div');
-      item.className = 'leaderboard-item';
-      item.innerHTML = `
-        <div class="name">${player.name}</div>
-        <div class="rank">${getRank(player.elo)}</div>
-        <div class="elo">${player.elo}</div>
-      `;
-      leaderboardElement.appendChild(item);
-    });
-  </script>
+        leaderboardData.forEach((player, index) => {
+            const item = document.createElement('div');
+            item.className = 'leaderboard-item';
+            item.innerHTML = `
+                <div class="rank">#${index + 1}</div>
+                <div class="name">${player.name}</div>
+                <div class="elo">${player.elo}</div>
+            `;
+            leaderboardElement.appendChild(item);
+        });
+    </script>
 </body>
 </html>
