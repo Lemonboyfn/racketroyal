@@ -5,73 +5,71 @@
   <title>Support - RacketRoyale</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Override or add only what is necessary */
-
-    /* Center container content with padding */
+    /* Just center the form container inside the existing page container */
     section.container {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
+      min-height: 70vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 70vh;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
 
-    /* Form container */
+    /* Form box: use your existing card style from site */
     .support-form {
-      width: 100%;
-      max-width: 500px;
-      background-color: #111; /* dark container like cards on the site */
-      border-radius: 12px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 6px 15px rgba(208, 0, 0, 0.4);
+      background-color: #111; /* consistent with your dark cards */
       border: 2px solid #d00000;
-      display: flex;
-      flex-direction: column;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(208, 0, 0, 0.4);
+      padding: 2.5rem 3rem;
+      max-width: 480px;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
     }
 
-    /* Form labels consistent with site */
     .support-form label {
+      display: block;
+      margin-bottom: 0.5rem;
       font-weight: 600;
       color: #d00000;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
       user-select: none;
+      font-size: 1rem;
     }
 
-    /* Inputs and textarea styling */
     .support-form input,
     .support-form textarea {
+      width: 100%;
       background-color: #222;
       border: 1.5px solid #444;
       border-radius: 8px;
       padding: 12px 15px;
-      font-size: 1rem;
       color: #eee;
+      font-size: 1rem;
       margin-bottom: 1.5rem;
       font-family: 'Montserrat', sans-serif;
       transition: border-color 0.3s ease;
       resize: vertical;
     }
+
     .support-form input:focus,
     .support-form textarea:focus {
       outline: none;
       border-color: #d00000;
       background-color: #2a2a2a;
-      color: #fff;
+      color: white;
     }
 
-    /* Button styling matching site's red button */
     .support-form button {
       background-color: #d00000;
+      border: none;
+      border-radius: 8px;
       color: white;
       font-weight: 700;
       font-size: 1.1rem;
       padding: 14px 0;
-      border: none;
-      border-radius: 8px;
       cursor: pointer;
+      width: 100%;
       letter-spacing: 0.02em;
       transition: background-color 0.3s ease;
       font-family: 'Montserrat', sans-serif;
@@ -99,30 +97,15 @@
   </nav>
 
   <section class="container">
-    <div class="support-form">
-      <form id="support-form">
-        <label for="subject">Subject</label>
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          placeholder="Enter the subject"
-          required
-          autocomplete="off"
-        />
+    <form class="support-form" id="support-form" autocomplete="off">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Enter the subject" required />
 
-        <label for="message">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="6"
-          placeholder="Write your message here"
-          required
-        ></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" placeholder="Write your message here" required></textarea>
 
-        <button type="submit">Send Email</button>
-      </form>
-    </div>
+      <button type="submit">Send Email</button>
+    </form>
   </section>
 
   <script>
