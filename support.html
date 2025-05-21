@@ -5,51 +5,52 @@
   <title>Support - RacketRoyale</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Extra styles to match leaderboard page's heading style */
-    section.container {
-      padding: 3rem 1.5rem 6rem 1.5rem;
-      max-width: 960px;
-      margin: 0 auto;
-      color: white;
+    body {
+      background-color: #000;
+      color: #fff;
       font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    section.container {
+      max-width: 900px;
+      margin: 80px auto 60px auto; /* space below navbar */
+      padding: 0 1.5rem;
     }
 
     h1.page-title {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
+      color: #fff;
       border-bottom: 4px solid #d00000;
-      padding-bottom: 0.3rem;
       width: fit-content;
-      color: white;
+      padding-bottom: 6px;
       user-select: none;
     }
 
-    /* Support form styling */
-    .support-form {
+    form.support-form {
       background-color: #111;
       border: 2px solid #d00000;
       border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(208, 0, 0, 0.4);
       padding: 2rem 2.5rem;
+      box-shadow: 0 6px 15px rgba(208, 0, 0, 0.4);
       max-width: 600px;
       width: 100%;
-      margin-top: 2rem;
-      font-family: 'Montserrat', sans-serif;
-      color: white;
+      color: #fff;
     }
 
-    .support-form label {
+    form.support-form label {
       display: block;
-      margin-bottom: 0.5rem;
       font-weight: 600;
       color: #d00000;
+      margin-bottom: 0.5rem;
       user-select: none;
-      font-size: 1rem;
     }
 
-    .support-form input,
-    .support-form textarea {
+    form.support-form input,
+    form.support-form textarea {
       width: 100%;
       background-color: #222;
       border: 1.5px solid #444;
@@ -63,19 +64,19 @@
       resize: vertical;
     }
 
-    .support-form input:focus,
-    .support-form textarea:focus {
+    form.support-form input:focus,
+    form.support-form textarea:focus {
       outline: none;
       border-color: #d00000;
       background-color: #2a2a2a;
-      color: white;
+      color: #fff;
     }
 
-    .support-form button {
+    form.support-form button {
       background-color: #d00000;
       border: none;
       border-radius: 8px;
-      color: white;
+      color: #fff;
       font-weight: 700;
       font-size: 1.1rem;
       padding: 14px 0;
@@ -86,32 +87,32 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    .support-form button:hover,
-    .support-form button:focus {
+    form.support-form button:hover,
+    form.support-form button:focus {
       background-color: #a30000;
       outline: none;
     }
   </style>
 </head>
 <body>
-  <!-- Navbar copied exactly from your site -->
+  <!-- NAVBAR exactly like on leaderboard.html -->
   <nav class="navbar">
     <div class="container">
-      <div class="logo">Racket<span>Royale</span></div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="rank.html">Rank/Elo</a></li>
-        <li><a href="support.html" class="active">Support</a></li>
-      </ul>
+      <div class="row justify-content-between align-items-center">
+        <div class="logo">Racket<span>Royale</span></div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="leaderboard.html">Leaderboard</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="rank.html">Rank/Elo</a></li>
+          <li><a href="support.html" class="active">Support</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <!-- Main container content like leaderboard page -->
   <section class="container">
     <h1 class="page-title">Support</h1>
-
     <form class="support-form" id="support-form" autocomplete="off">
       <label for="subject">Subject</label>
       <input
