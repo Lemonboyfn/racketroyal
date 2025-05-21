@@ -1,108 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Racket Royal - ELO Rank System</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f9f9f9;
-      border-radius: 10px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 18px;
-    }
-
-    td {
-      padding: 10px 8px;
-    }
-
-    td.rank-name {
-      font-weight: 600;
-    }
-
-    td.emoji-left, td.emoji-right {
-      width: 30px;
-      text-align: center;
-    }
-
-    td.elo-range {
-      text-align: center;
-      font-family: monospace;
-    }
-
-    .note {
-      margin-top: 30px;
-      font-size: 14px;
-      text-align: center;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>🎾 Racket Royal - ELO Rank System</h1>
-
-  <table>
+<div style="max-width: 700px; margin: 60px auto; padding: 20px; background-color: #111; border-radius: 12px; color: #fff; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; color: #e91e63;">ELO to Rank System</h2>
+  <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin-top: 20px;">
     <tr>
-      <td class="emoji-left">🟫</td>
-      <td class="rank-name">Bronze</td>
-      <td class="elo-range">0 - 499</td>
-      <td class="emoji-right">🟫</td>
+      <td style="text-align: center;">🟫</td>
+      <td style="font-weight: bold;">Bronze</td>
+      <td style="text-align: center;">0 - 499</td>
+      <td style="text-align: center;">🟫</td>
     </tr>
     <tr>
-      <td class="emoji-left">⚪</td>
-      <td class="rank-name">Silver</td>
-      <td class="elo-range">500 - 699</td>
-      <td class="emoji-right">⚪</td>
+      <td style="text-align: center;">⚪</td>
+      <td style="font-weight: bold;">Silver</td>
+      <td style="text-align: center;">500 - 699</td>
+      <td style="text-align: center;">⚪</td>
     </tr>
     <tr>
-      <td class="emoji-left">🟡</td>
-      <td class="rank-name">Gold</td>
-      <td class="elo-range">700 - 899</td>
-      <td class="emoji-right">🟡</td>
+      <td style="text-align: center;">🟡</td>
+      <td style="font-weight: bold;">Gold</td>
+      <td style="text-align: center;">700 - 899</td>
+      <td style="text-align: center;">🟡</td>
     </tr>
     <tr>
-      <td class="emoji-left">🔷</td>
-      <td class="rank-name">Platinum</td>
-      <td class="elo-range">900 - 1099</td>
-      <td class="emoji-right">🔷</td>
+      <td style="text-align: center;">🔷</td>
+      <td style="font-weight: bold;">Platinum</td>
+      <td style="text-align: center;">900 - 1099</td>
+      <td style="text-align: center;">🔷</td>
     </tr>
     <tr>
-      <td class="emoji-left">💚</td>
-      <td class="rank-name">Emerald</td>
-      <td class="elo-range">1100 - 1299</td>
-      <td class="emoji-right">💚</td>
+      <td style="text-align: center;">💚</td>
+      <td style="font-weight: bold;">Emerald</td>
+      <td style="text-align: center;">1100 - 1299</td>
+      <td style="text-align: center;">💚</td>
     </tr>
     <tr>
-      <td class="emoji-left">💎</td>
-      <td class="rank-name">Diamond</td>
-      <td class="elo-range">1300 - 1499</td>
-      <td class="emoji-right">💎</td>
+      <td style="text-align: center;">💎</td>
+      <td style="font-weight: bold;">Diamond</td>
+      <td style="text-align: center;">1300 - 1499</td>
+      <td style="text-align: center;">💎</td>
     </tr>
     <tr>
-      <td class="emoji-left">👑</td>
-      <td class="rank-name">Champion</td>
-      <td class="elo-range">1500+</td>
-      <td class="emoji-right">👑</td>
+      <td style="text-align: center;">👑</td>
+      <td style="font-weight: bold;">Champion</td>
+      <td style="text-align: center;">1500+</td>
+      <td style="text-align: center;">👑</td>
     </tr>
   </table>
-
-  <div class="note">
-    Your ELO increases or decreases based on match results. Climb the ranks and earn your crown! 👑
-  </div>
-
-</body>
-</html>
+  <p style="text-align: center; margin-top: 25px; font-size: 14px; color: #aaa;">
+    Win matches to increase your ELO and climb the ranks. Can you reach 👑 Champion?
+  </p>
+</div>
