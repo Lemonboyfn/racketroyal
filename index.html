@@ -23,13 +23,24 @@
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
 
-      function disableSiteInteractions(disabled) {
-        const overlay = document.getElementById('blocker');
-        overlay.style.display = disabled ? 'block' : 'none';
+      function disableRestrictedLinks(disabled) {
+        const navLinks = document.querySelectorAll('nav a:not([href="index.html"])');
+        navLinks.forEach(link => {
+          if (disabled) {
+            link.classList.add("disabled-link");
+            link.onclick = e => e.preventDefault();
+          } else {
+            link.classList.remove("disabled-link");
+            link.onclick = null;
+          }
+        });
+
+        const blocker = document.getElementById('blocker');
+        blocker.style.display = disabled ? 'block' : 'none';
       }
 
       onAuthStateChanged(auth, user => {
-        disableSiteInteractions(!user);
+        disableRestrictedLinks(!user);
       });
 
       window.addEventListener('DOMContentLoaded', () => {
@@ -64,6 +75,11 @@
         z-index: 10000;
         display: none;
         pointer-events: all;
+      }
+      .disabled-link {
+        pointer-events: none;
+        opacity: 0.5;
+        cursor: default;
       }
     </style>
 </head>
