@@ -5,25 +5,36 @@
   <title>Support - RacketRoyale</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Center the form container */
+    /* Extra styles to match leaderboard page's heading style */
     section.container {
-      min-height: 70vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding: 3rem 1.5rem 6rem 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    /* Form styling consistent with site theme */
+    h1.page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 4px solid #d00000;
+      padding-bottom: 0.3rem;
+      width: fit-content;
+      color: white;
+      user-select: none;
+    }
+
+    /* Support form styling */
     .support-form {
       background-color: #111;
       border: 2px solid #d00000;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(208, 0, 0, 0.4);
-      padding: 2.5rem 3rem;
-      max-width: 480px;
+      padding: 2rem 2.5rem;
+      max-width: 600px;
       width: 100%;
+      margin-top: 2rem;
       font-family: 'Montserrat', sans-serif;
       color: white;
     }
@@ -83,7 +94,7 @@
   </style>
 </head>
 <body>
-  <!-- Navbar exactly same as other pages, active class on Support -->
+  <!-- Navbar copied exactly from your site -->
   <nav class="navbar">
     <div class="container">
       <div class="logo">Racket<span>Royale</span></div>
@@ -97,25 +108,43 @@
     </div>
   </nav>
 
-  <!-- Support form centered -->
+  <!-- Main container content like leaderboard page -->
   <section class="container">
+    <h1 class="page-title">Support</h1>
+
     <form class="support-form" id="support-form" autocomplete="off">
       <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" placeholder="Enter the subject" required />
+      <input
+        type="text"
+        id="subject"
+        name="subject"
+        placeholder="Enter the subject"
+        required
+      />
 
       <label for="message">Message</label>
-      <textarea id="message" name="message" rows="6" placeholder="Write your message here" required></textarea>
+      <textarea
+        id="message"
+        name="message"
+        rows="6"
+        placeholder="Write your message here"
+        required
+      ></textarea>
 
       <button type="submit">Send Email</button>
     </form>
   </section>
 
   <script>
-    document.getElementById('support-form').addEventListener('submit', function (e) {
+    document.getElementById("support-form").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const subject = encodeURIComponent(document.getElementById('subject').value.trim());
-      const message = encodeURIComponent(document.getElementById('message').value.trim());
+      const subject = encodeURIComponent(
+        document.getElementById("subject").value.trim()
+      );
+      const message = encodeURIComponent(
+        document.getElementById("message").value.trim()
+      );
 
       if (!subject || !message) {
         alert("Please fill out both the subject and the message.");
