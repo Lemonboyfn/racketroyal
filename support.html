@@ -4,6 +4,48 @@
     <meta charset="UTF-8" />
     <title>Support - RacketRoyale</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .support-form {
+            background-color: #1f1f1f;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin-top: 30px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        .support-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #facc15;
+        }
+
+        .support-form input,
+        .support-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: #2a2a2a;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .support-form button {
+            background-color: #facc15;
+            color: black;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .support-form button:hover {
+            background-color: #eab308;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -20,9 +62,31 @@
             </div>
         </div>
     </nav>
+
     <section class="container">
         <h1>Support</h1>
         <p>Need help? Email us or contact our team for assistance.</p>
+
+        <div class="support-form">
+            <form id="support-form">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Email</button>
+            </form>
+        </div>
     </section>
+
+    <script>
+        document.getElementById('support-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const subject = encodeURIComponent(document.getElementById('subject').value);
+            const message = encodeURIComponent(document.getElementById('message').value);
+            window.location.href = `mailto:racketroyal404@gmail.com?subject=${subject}&body=${message}`;
+        });
+    </script>
 </body>
 </html>
