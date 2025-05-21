@@ -5,7 +5,6 @@
   <title>Support - RacketRoyale</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Just center the form container inside the existing page container */
     section.container {
       min-height: 70vh;
       display: flex;
@@ -14,10 +13,8 @@
       padding-top: 4rem;
       padding-bottom: 4rem;
     }
-
-    /* Form box: use your existing card style from site */
     .support-form {
-      background-color: #111; /* consistent with your dark cards */
+      background-color: #111;
       border: 2px solid #d00000;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(208, 0, 0, 0.4);
@@ -27,7 +24,6 @@
       font-family: 'Montserrat', sans-serif;
       color: white;
     }
-
     .support-form label {
       display: block;
       margin-bottom: 0.5rem;
@@ -36,7 +32,6 @@
       user-select: none;
       font-size: 1rem;
     }
-
     .support-form input,
     .support-form textarea {
       width: 100%;
@@ -51,7 +46,6 @@
       transition: border-color 0.3s ease;
       resize: vertical;
     }
-
     .support-form input:focus,
     .support-form textarea:focus {
       outline: none;
@@ -59,7 +53,6 @@
       background-color: #2a2a2a;
       color: white;
     }
-
     .support-form button {
       background-color: #d00000;
       border: none;
@@ -74,11 +67,36 @@
       transition: background-color 0.3s ease;
       font-family: 'Montserrat', sans-serif;
     }
-
     .support-form button:hover,
     .support-form button:focus {
       background-color: #a30000;
       outline: none;
+    }
+
+    /* Navbar tweaks if needed */
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      padding-bottom: 6px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .navbar ul li a:hover {
+      color: #d00000;
+      border-bottom-color: #d00000;
+    }
+    .navbar ul li a.active {
+      color: #d00000;
+      border-bottom-color: #d00000;
+      font-weight: 700;
     }
   </style>
 </head>
