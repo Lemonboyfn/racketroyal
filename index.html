@@ -17,7 +17,8 @@
         <label for="click" class="menu-btn">
           <i class="material-icons">menu</i>
         </label>
-        <ul>
+        <!-- Links are hidden by default -->
+        <ul id="nav-links" style="display: none;">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="leaderboard.html">Leaderboard</a></li>
           <li><a href="calendar.html">Calendar</a></li>
@@ -104,7 +105,12 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-analytics.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyA62L2EjQDmtaNDGWfgoe2DgykZS5Awg60",
@@ -120,6 +126,16 @@
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
 
+    // Show nav links if user is logged in
+    onAuthStateChanged(auth, (user) => {
+      const navLinks = document.getElementById("nav-links");
+      if (user) {
+        navLinks.style.display = "flex"; // Or "block" depending on your layout
+      } else {
+        navLinks.style.display = "none";
+      }
+    });
+
     // Login handler
     document.getElementById("login-btn").addEventListener("click", async (e) => {
       e.preventDefault();
@@ -127,9 +143,8 @@
       const password = document.getElementById("login-password").value;
 
       try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, email, password);
         alert("Logged in successfully!");
-        // window.location.href = "dashboard.html"; // redirect if needed
       } catch (error) {
         alert("Login failed: " + error.message);
       }
@@ -142,9 +157,9 @@
       const password = document.getElementById("signup-password").value;
 
       try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        alert("Sign-up successful!");
-        // Optionally redirect or auto login
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("Sign-up successful! Please log in.");
+        document.getElementById("reg-log").checked = false;
       } catch (error) {
         alert("Sign-up failed: " + error.message);
       }
