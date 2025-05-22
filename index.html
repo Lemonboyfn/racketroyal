@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Home - RacketRoyale</title>
+  <title>Support - RacketRoyale</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: #000;
@@ -21,7 +22,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 80px;
+      gap: 80px; /* shift right section (nav) leftward */
     }
 
     .logo {
@@ -40,7 +41,6 @@
       gap: 20px;
       margin: 0;
       padding: 0;
-      margin-left: 13.5%;
     }
 
     .nav-links li a {
@@ -50,40 +50,60 @@
       padding: 8px 12px;
       border-radius: 6px;
       transition: background-color 0.2s, color 0.2s;
-      cursor: pointer;
     }
 
-    /* Style for active and hover */
     .nav-links li a.active,
     .nav-links li a:hover {
       background-color: white;
       color: #ff4c6a;
     }
 
-    /* Disabled links - look normal but no clicks */
-    .nav-links li a.disabled {
-      pointer-events: none;
-      opacity: 0.6; /* slight dim */
-      cursor: default;
+    .container {
+      max-width: 600px;
+      margin: 100px auto 40px;
+      padding: 20px;
     }
 
-    h1, p {
-      margin: 40px 60px 0 60px;
+    form {
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
     }
 
-    button#signInBtn {
-      margin: 20px 60px;
-      padding: 12px 24px;
-      font-size: 16px;
+    label {
+      display: block;
+      margin-bottom: 8px;
       font-weight: bold;
       color: white;
-      background-color: #ff4c6a;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
       border: none;
       border-radius: 6px;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+    }
+
+    .btn {
+      background-color: #ff4c6a;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
     }
-    button#signInBtn:hover {
+
+    .btn:hover {
       background-color: #e60042;
     }
   </style>
@@ -93,31 +113,29 @@
   <nav class="navbar">
     <div class="logo">Racket<span>Royale</span></div>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="leaderboard.html" class="disabled">Leaderboard</a></li>
-      <li><a href="calendar.html" class="disabled">Calendar</a></li>
-      <li><a href="rank.html" class="disabled">Rank/Elo</a></li>
-      <li><a href="support.html" class="disabled">Support</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="leaderboard.html">Leaderboard</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="rank.html">Rank/Elo</a></li>
+      <li><a href="support.html" class="active">Support</a></li>
     </ul>
   </nav>
 
-  <h1>Welcome to RacketRoyale!</h1>
-  <p>Please sign in to access other pages.</p>
-  <button id="signInBtn">Sign In</button>
+  <div class="container">
+    <form action="mailto:racketroyal404@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
 
-  <script>
-    const signInBtn = document.getElementById('signInBtn');
-    const disabledLinks = document.querySelectorAll('.nav-links li a.disabled');
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
 
-    signInBtn.addEventListener('click', () => {
-      disabledLinks.forEach(link => {
-        link.classList.remove('disabled');
-        // optionally, you can add focus style or something else here
-      });
-      signInBtn.style.display = 'none';
-      alert('Signed in! You can now access all pages.');
-    });
-  </script>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
 
 </body>
 </html>
+)
