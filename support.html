@@ -21,7 +21,7 @@
       z-index: 1000;
     }
 
-    .navbar .nav-inner {
+    .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -39,7 +39,7 @@
       color: #ff2c5d;
     }
 
-    .navbar ul {
+    .nav-links {
       display: flex;
       list-style: none;
       gap: 20px;
@@ -47,7 +47,7 @@
       padding: 0;
     }
 
-    .navbar ul li a {
+    .nav-links li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
@@ -56,10 +56,10 @@
       transition: background-color 0.2s, color 0.2s;
     }
 
-    .navbar ul li a.active,
-    .navbar ul li a:hover {
+    .nav-links li a.active,
+    .nav-links li a:hover {
       background-color: white;
-      color: #ff2c5d;
+      color: #ff4c6a; /* Light red */
     }
 
     .container {
@@ -113,11 +113,10 @@
   </style>
 </head>
 <body>
-
   <nav class="navbar">
     <div class="nav-inner">
       <div class="logo">Racket<span>Royale</span></div>
-      <ul>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="leaderboard.html">Leaderboard</a></li>
         <li><a href="calendar.html">Calendar</a></li>
@@ -141,6 +140,5 @@
       <button type="submit" class="btn">Send Message</button>
     </form>
   </div>
-
 </body>
 </html>
