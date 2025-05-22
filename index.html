@@ -9,97 +9,115 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.12/iconfont/material-icons.min.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="row justify-content-between align-items-center">
-        <div class="logo">Racket<span>Royale</span></div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-          <i class="material-icons">menu</i>
-        </label>
-        <!-- Links are hidden by default -->
-        <ul id="nav-links" style="display: none;">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="leaderboard.html">Leaderboard</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
-          <li><a href="rank.html">Rank/Elo</a></li>
-          <li><a href="support.html">Support</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <section>
-    <div class="container">
-      <div class="row full-screen align-items-center">
-        <div class="left">
-          <span class="line"></span>
-          <h2>Hello, Welcome to <br> a <span>RacketRoyale</span></h2>
-          <p>The best website that gamifies racket sports</p>
-          <a href="support.html" class="btn">Contact</a>
-          <div class="social-media">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+  <!-- Protected Content -->
+  <div id="protected-content" style="display: none;">
+    <nav class="navbar">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="logo">Racket<span>Royale</span></div>
+          <input type="checkbox" id="click">
+          <label for="click" class="menu-btn">
+            <i class="material-icons">menu</i>
+          </label>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="rank.html">Rank/Elo</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <div class="container">
+        <div class="row full-screen align-items-center">
+          <div class="left">
+            <span class="line"></span>
+            <h2>Hello, Welcome to <br> a <span>RacketRoyale</span></h2>
+            <p>The best website that gamifies racket sports</p>
+            <a href="support.html" class="btn">Contact</a>
+            <div class="social-media">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="right">
+            <div class="form">
+              <p style="text-align: center; font-weight: bold;">You're logged in!</p>
+              <button class="btn" id="logout-btn">Logout</button>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+  </div>
 
-        <div class="right">
-          <div class="form">
-            <div class="text-center">
-              <h6><span>Log In</span> <span>Sign Up</span></h6>
-              <input type="checkbox" class="checkbox" id="reg-log">
-              <label for="reg-log"></label>
-              <div class="card-3d-wrap">
-                <div class="card-3d-wrapper">
+  <!-- Unauthorized Message and Login/Signup -->
+  <div id="unauthorized-message" style="display: none;">
+    <section>
+      <div class="container">
+        <div class="row full-screen align-items-center">
+          <div class="right" style="margin: auto;">
+            <div class="form">
+              <div class="text-center">
+                <h6><span>Log In</span> <span>Sign Up</span></h6>
+                <input type="checkbox" class="checkbox" id="reg-log">
+                <label for="reg-log"></label>
+                <div class="card-3d-wrap">
+                  <div class="card-3d-wrapper">
 
-                  <!-- Login Form -->
-                  <div class="card-front">
-                    <div class="center-wrap">
-                      <h4 class="heading">Log In</h4>
-                      <div class="form-group">
-                        <input type="email" id="login-email" class="form-style" placeholder="Your Email" autocomplete="off">
-                        <i class="input-icon material-icons">alternate_email</i>
+                    <!-- Login Form -->
+                    <div class="card-front">
+                      <div class="center-wrap">
+                        <h4 class="heading">Log In</h4>
+                        <div class="form-group">
+                          <input type="email" id="login-email" class="form-style" placeholder="Your Email" autocomplete="off">
+                          <i class="input-icon material-icons">alternate_email</i>
+                        </div>
+                        <div class="form-group">
+                          <input type="password" id="login-password" class="form-style" placeholder="Your Password" autocomplete="off">
+                          <i class="input-icon material-icons">lock</i>
+                        </div>
+                        <a href="#" class="btn" id="login-btn">Submit</a>
+                        <p class="text-center"><a href="#" class="link">Forgot your password?</a></p>
                       </div>
-                      <div class="form-group">
-                        <input type="password" id="login-password" class="form-style" placeholder="Your Password" autocomplete="off">
-                        <i class="input-icon material-icons">lock</i>
-                      </div>
-                      <a href="#" class="btn" id="login-btn">Submit</a>
-                      <p class="text-center"><a href="#" class="link">Forgot your password?</a></p>
                     </div>
-                  </div>
 
-                  <!-- Sign Up Form -->
-                  <div class="card-back">
-                    <div class="center-wrap">
-                      <h4 class="heading">Sign Up</h4>
-                      <div class="form-group">
-                        <input type="text" id="signup-name" class="form-style" placeholder="Your Name" autocomplete="off">
-                        <i class="input-icon material-icons">perm_identity</i>
+                    <!-- Sign Up Form -->
+                    <div class="card-back">
+                      <div class="center-wrap">
+                        <h4 class="heading">Sign Up</h4>
+                        <div class="form-group">
+                          <input type="text" id="signup-name" class="form-style" placeholder="Your Name" autocomplete="off">
+                          <i class="input-icon material-icons">perm_identity</i>
+                        </div>
+                        <div class="form-group">
+                          <input type="email" id="signup-email" class="form-style" placeholder="Your Email" autocomplete="off">
+                          <i class="input-icon material-icons">alternate_email</i>
+                        </div>
+                        <div class="form-group">
+                          <input type="password" id="signup-password" class="form-style" placeholder="Your Password" autocomplete="off">
+                          <i class="input-icon material-icons">lock</i>
+                        </div>
+                        <a href="#" class="btn" id="signup-btn">Submit</a>
                       </div>
-                      <div class="form-group">
-                        <input type="email" id="signup-email" class="form-style" placeholder="Your Email" autocomplete="off">
-                        <i class="input-icon material-icons">alternate_email</i>
-                      </div>
-                      <div class="form-group">
-                        <input type="password" id="signup-password" class="form-style" placeholder="Your Password" autocomplete="off">
-                        <i class="input-icon material-icons">lock</i>
-                      </div>
-                      <a href="#" class="btn" id="signup-btn">Submit</a>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>    
+            </div>    
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- Firebase & Auth Scripts -->
   <script type="module">
@@ -109,7 +127,8 @@
       getAuth,
       onAuthStateChanged,
       createUserWithEmailAndPassword,
-      signInWithEmailAndPassword
+      signInWithEmailAndPassword,
+      signOut
     } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -126,18 +145,22 @@
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
 
-    // Show nav links if user is logged in
+    const protectedContent = document.getElementById("protected-content");
+    const unauthorizedMessage = document.getElementById("unauthorized-message");
+
+    // Handle auth state
     onAuthStateChanged(auth, (user) => {
-      const navLinks = document.getElementById("nav-links");
       if (user) {
-        navLinks.style.display = "flex"; // Or "block" depending on your layout
+        protectedContent.style.display = "block";
+        unauthorizedMessage.style.display = "none";
       } else {
-        navLinks.style.display = "none";
+        protectedContent.style.display = "none";
+        unauthorizedMessage.style.display = "block";
       }
     });
 
-    // Login handler
-    document.getElementById("login-btn").addEventListener("click", async (e) => {
+    // Login
+    document.getElementById("login-btn")?.addEventListener("click", async (e) => {
       e.preventDefault();
       const email = document.getElementById("login-email").value;
       const password = document.getElementById("login-password").value;
@@ -150,19 +173,24 @@
       }
     });
 
-    // Sign up handler
-    document.getElementById("signup-btn").addEventListener("click", async (e) => {
+    // Signup
+    document.getElementById("signup-btn")?.addEventListener("click", async (e) => {
       e.preventDefault();
       const email = document.getElementById("signup-email").value;
       const password = document.getElementById("signup-password").value;
 
       try {
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Sign-up successful! Please log in.");
-        document.getElementById("reg-log").checked = false;
+        alert("Sign-up successful!");
       } catch (error) {
         alert("Sign-up failed: " + error.message);
       }
+    });
+
+    // Logout
+    document.getElementById("logout-btn")?.addEventListener("click", async () => {
+      await signOut(auth);
+      alert("Logged out.");
     });
   </script>
 </body>
