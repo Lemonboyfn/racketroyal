@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,15 +13,15 @@
       padding: 0;
     }
 
-    nav {
+    .navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
       background-color: transparent;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
@@ -34,7 +34,7 @@
       color: #ff2c5d;
     }
 
-    nav ul {
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 20px;
@@ -42,7 +42,7 @@
       padding: 0;
     }
 
-    nav ul li a {
+    .nav-links li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
@@ -51,8 +51,8 @@
       transition: background-color 0.2s, color 0.2s;
     }
 
-    nav ul li a.active,
-    nav ul li a:hover {
+    .nav-links li a.active,
+    .nav-links li a:hover {
       background-color: white;
       color: #ff4c6a;
     }
@@ -109,9 +109,9 @@
 </head>
 <body>
 
-  <nav>
+  <nav class="navbar">
     <div class="logo">Racket<span>Royale</span></div>
-    <ul>
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="leaderboard.html">Leaderboard</a></li>
       <li><a href="calendar.html">Calendar</a></li>
