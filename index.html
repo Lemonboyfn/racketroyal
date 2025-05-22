@@ -9,7 +9,7 @@
       color: white;
       font-family: 'Arial', sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
     }
 
     .navbar {
@@ -43,47 +43,36 @@
       margin-left: 13.5%;
     }
 
-    /* Home link always visible and clickable */
-    .nav-links li a.home-link {
+    .nav-links li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
       padding: 8px 12px;
       border-radius: 6px;
-      pointer-events: auto;
-      opacity: 1;
       transition: background-color 0.2s, color 0.2s;
+      cursor: pointer;
     }
 
-    /* Disabled links start hidden and unclickable */
-    .nav-links li a.disabled-link {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 6px;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s, background-color 0.2s, color 0.2s;
-    }
-
-    /* When enabled, show and allow clicks */
-    .nav-links li a.enabled-link {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .nav-links li a:hover.enabled-link {
+    /* Style for active and hover */
+    .nav-links li a.active,
+    .nav-links li a:hover {
       background-color: white;
       color: #ff4c6a;
     }
 
+    /* Disabled links - look normal but no clicks */
+    .nav-links li a.disabled {
+      pointer-events: none;
+      opacity: 0.6; /* slight dim */
+      cursor: default;
+    }
+
     h1, p {
-      margin-left: 60px;
+      margin: 40px 60px 0 60px;
     }
 
     button#signInBtn {
-      margin-left: 60px;
+      margin: 20px 60px;
       padding: 12px 24px;
       font-size: 16px;
       font-weight: bold;
@@ -104,28 +93,29 @@
   <nav class="navbar">
     <div class="logo">Racket<span>Royale</span></div>
     <ul class="nav-links">
-      <li><a href="index.html" class="home-link">Home</a></li>
-      <li><a href="leaderboard.html" class="disabled-link">Leaderboard</a></li>
-      <li><a href="calendar.html" class="disabled-link">Calendar</a></li>
-      <li><a href="rank.html" class="disabled-link">Rank/Elo</a></li>
-      <li><a href="support.html" class="disabled-link">Support</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="leaderboard.html" class="disabled">Leaderboard</a></li>
+      <li><a href="calendar.html" class="disabled">Calendar</a></li>
+      <li><a href="rank.html" class="disabled">Rank/Elo</a></li>
+      <li><a href="support.html" class="disabled">Support</a></li>
     </ul>
   </nav>
 
   <h1>Welcome to RacketRoyale!</h1>
-  <p>Please sign in to access all pages.</p>
+  <p>Please sign in to access other pages.</p>
   <button id="signInBtn">Sign In</button>
 
   <script>
     const signInBtn = document.getElementById('signInBtn');
-    const disabledLinks = document.querySelectorAll('.disabled-link');
+    const disabledLinks = document.querySelectorAll('.nav-links li a.disabled');
 
     signInBtn.addEventListener('click', () => {
       disabledLinks.forEach(link => {
-        link.classList.add('enabled-link');
+        link.classList.remove('disabled');
+        // optionally, you can add focus style or something else here
       });
       signInBtn.style.display = 'none';
-      alert('Signed in! Navigation links enabled.');
+      alert('Signed in! You can now access all pages.');
     });
   </script>
 
