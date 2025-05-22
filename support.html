@@ -13,6 +13,7 @@
       padding: 0;
     }
 
+    /* NAVBAR STYLES */
     .navbar {
       background-color: #1c1c1c;
       padding: 20px 40px;
@@ -21,7 +22,7 @@
       z-index: 1000;
     }
 
-    .navbar .container {
+    .navbar .nav-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -62,9 +63,10 @@
       color: #ff2c5d;
     }
 
-    .container-content {
+    /* FORM SECTION */
+    .form-container {
       max-width: 600px;
-      margin: 100px auto 0;
+      margin: 120px auto 40px;
       padding: 20px;
     }
 
@@ -95,25 +97,27 @@
     }
 
     button {
-      padding: 10px 16px;
-      border: 1px solid #ccc;
-      background-color: buttonface;
-      color: buttontext;
-      border-radius: 4px;
-      cursor: pointer;
+      padding: 12px;
+      background-color: #ff4f7f; /* Light red */
+      color: white;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
       font-size: 16px;
       font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
     }
 
     button:hover {
-      background-color: #ddd;
+      background-color: #ff2c5d;
     }
   </style>
 </head>
 <body>
 
   <nav class="navbar">
-    <div class="container">
+    <div class="nav-content">
       <div class="logo">Racket<span>Royale</span></div>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -125,7 +129,7 @@
     </div>
   </nav>
 
-  <div class="container-content">
+  <div class="form-container">
     <form action="mailto:racketroyal404@gmail.com" method="POST" enctype="text/plain">
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" required />
