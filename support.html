@@ -58,47 +58,64 @@
 
     .container {
       max-width: 600px;
-      margin: 80px auto 0;
+      margin: 80px auto;
       padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #ccc;
     }
 
     form {
       background-color: #1c1c1c;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
     }
 
     label {
       display: block;
       margin-bottom: 8px;
       font-weight: bold;
-      color: #fff;
+      color: white;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
+      margin-bottom: 20px;
       border: none;
       border-radius: 6px;
-      margin-bottom: 20px;
       background-color: #333;
       color: white;
+      font-size: 16px;
     }
 
-    button {
+    .btn {
       background-color: #ff2c5d;
       color: white;
+      padding: 12px;
       border: none;
-      padding: 12px 20px;
       border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
       width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
     }
 
-    button:hover {
-      background-color: #ff1a4d;
+    .btn:hover {
+      background-color: #e60042;
     }
   </style>
 </head>
@@ -116,17 +133,20 @@
   </nav>
 
   <div class="container">
+    <h1>Support</h1>
+    <p>Need help? Email us or contact our team for assistance.</p>
+
     <form action="mailto:racketroyal404@gmail.com" method="POST" enctype="text/plain">
       <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name" required />
 
       <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required />
 
       <label for="message">Message</label>
-      <textarea id="message" name="message" rows="6" required></textarea>
+      <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Send Message</button>
+      <button type="submit" class="btn">Send Message</button>
     </form>
   </div>
 
