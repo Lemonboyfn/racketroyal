@@ -13,7 +13,6 @@
       padding: 0;
     }
 
-    /* NAVBAR STYLES */
     .navbar {
       background-color: #1c1c1c;
       padding: 20px 40px;
@@ -22,7 +21,7 @@
       z-index: 1000;
     }
 
-    .navbar .nav-content {
+    .navbar .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -41,8 +40,8 @@
     }
 
     .navbar ul {
-      list-style: none;
       display: flex;
+      list-style: none;
       gap: 20px;
       margin: 0;
       padding: 0;
@@ -63,10 +62,9 @@
       color: #ff2c5d;
     }
 
-    /* FORM SECTION */
-    .form-container {
+    .container {
       max-width: 600px;
-      margin: 120px auto 40px;
+      margin: 100px auto 40px;
       padding: 20px;
     }
 
@@ -96,10 +94,10 @@
       font-size: 16px;
     }
 
-    button {
-      padding: 12px;
-      background-color: #ff4f7f; /* Light red */
+    .btn {
+      background-color: #ff4c6a;
       color: white;
+      padding: 12px;
       border: none;
       border-radius: 6px;
       width: 100%;
@@ -109,15 +107,15 @@
       transition: background-color 0.2s ease-in-out;
     }
 
-    button:hover {
-      background-color: #ff2c5d;
+    .btn:hover {
+      background-color: #e60042;
     }
   </style>
 </head>
 <body>
 
   <nav class="navbar">
-    <div class="nav-content">
+    <div class="nav-inner">
       <div class="logo">Racket<span>Royale</span></div>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -129,7 +127,7 @@
     </div>
   </nav>
 
-  <div class="form-container">
+  <div class="container">
     <form action="mailto:racketroyal404@gmail.com" method="POST" enctype="text/plain">
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" required />
@@ -140,7 +138,7 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Send Message</button>
+      <button type="submit" class="btn">Send Message</button>
     </form>
   </div>
 
