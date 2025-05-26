@@ -9,7 +9,11 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #111;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .navbar {
@@ -50,57 +54,61 @@
 
         .container {
             padding: 2em;
-            max-width: 1000px;
-            margin: 0 auto;
+            flex: 1;
         }
 
-        .stats-box {
+        .stats-center {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 2em;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2em;
+            margin-bottom: 4em;
         }
 
-        .stat-card {
+        .stat-box {
             background-color: #fff;
+            border: 1px solid #444;
             border-radius: 10px;
             padding: 1.5em;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            width: 160px;
             text-align: center;
-            width: 200px;
+            font-size: 1.2em;
+            color: #000;
         }
 
-        .stat-card h2 {
-            margin: 0;
-            font-size: 2em;
-            color: #00BFFF;
-        }
-
-        .stat-card p {
-            margin: 0;
-            color: #555;
-            font-weight: bold;
+        .stat-box small {
+            display: block;
             margin-top: 0.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .rank-section {
+            margin-top: auto;
+            padding-bottom: 3em;
         }
 
         .rank-list {
+            margin-top: 2em;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5em;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
         }
 
         .rank-item {
-            background-color: #fff;
-            border-radius: 10px;
             padding: 1em;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #444;
+            border-radius: 10px;
+            background-color: #1a1a1a;
+            color: white;
             display: flex;
             align-items: center;
-            font-size: 1.1em;
             gap: 10px;
+            font-size: 1.2em;
         }
 
-        .rank-item span {
-            font-weight: bold;
+        footer {
+            height: 1px;
         }
     </style>
 </head>
@@ -119,27 +127,59 @@
     </nav>
 
     <section class="container">
-        <div class="stats-box">
-            <div class="stat-card">
-                <h2>0</h2>
-                <p>Wins</p>
+        <div class="stats-center">
+            <div class="stat-box">
+                <div id="rank">Bronze</div>
+                <small>Current Rank</small>
             </div>
-            <div class="stat-card">
-                <h2>0</h2>
-                <p>Losses</p>
+            <div class="stat-box">
+                <div id="wins">0</div>
+                <small>Wins</small>
+            </div>
+            <div class="stat-box">
+                <div id="losses">0</div>
+                <small>Losses</small>
+            </div>
+            <div class="stat-box">
+                <div id="kills">0</div>
+                <small>Kills</small>
+            </div>
+            <div class="stat-box">
+                <div id="deaths">0</div>
+                <small>Deaths</small>
             </div>
         </div>
 
-        <div class="rank-list">
-            <div class="rank-item">🟤 <span>Bronze</span> (0 - 499)</div>
-            <div class="rank-item">🥈 <span>Silver</span> (500 - 699)</div>
-            <div class="rank-item">🥇 <span>Gold</span> (700 - 899)</div>
-            <div class="rank-item">💎 <span>Platinum</span> (900 - 1099)</div>
-            <div class="rank-item">💚 <span>Emerald</span> (1100 - 1299)</div>
-            <div class="rank-item">🔷 <span>Diamond</span> (1300 - 1499)</div>
-            <div class="rank-item">👑 <span>Champion</span> (1500+)</div>
+        <div class="rank-section">
+            <div class="rank-list">
+                <div class="rank-item">🟤 Bronze (0 - 499)</div>
+                <div class="rank-item">🥈 Silver (500 - 699)</div>
+                <div class="rank-item">🥇 Gold (700 - 899)</div>
+                <div class="rank-item">💎 Platinum (900 - 1099)</div>
+                <div class="rank-item">💚 Emerald (1100 - 1299)</div>
+                <div class="rank-item">🔷 Diamond (1300 - 1499)</div>
+                <div class="rank-item">👑 Champion (1500+)</div>
+            </div>
         </div>
     </section>
+
+    <footer></footer>
+
+    <script>
+        // Mock dynamic values (replace with API or backend data)
+        const stats = {
+            rank: "Gold",
+            wins: 12,
+            losses: 8,
+            kills: 34,
+            deaths: 21
+        };
+
+        document.getElementById("rank").textContent = stats.rank;
+        document.getElementById("wins").textContent = stats.wins;
+        document.getElementById("losses").textContent = stats.losses;
+        document.getElementById("kills").textContent = stats.kills;
+        document.getElementById("deaths").textContent = stats.deaths;
+    </script>
 </body>
 </html>
- 
