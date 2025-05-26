@@ -62,7 +62,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 2em;
-            margin-bottom: 4em;
+            margin-top: 4em;
         }
 
         .stat-box {
@@ -127,29 +127,6 @@
     </nav>
 
     <section class="container">
-        <div class="stats-center">
-            <div class="stat-box">
-                <div id="rank">Bronze</div>
-                <small>Current Rank</small>
-            </div>
-            <div class="stat-box">
-                <div id="wins">0</div>
-                <small>Wins</small>
-            </div>
-            <div class="stat-box">
-                <div id="losses">0</div>
-                <small>Losses</small>
-            </div>
-            <div class="stat-box">
-                <div id="kills">0</div>
-                <small>Kills</small>
-            </div>
-            <div class="stat-box">
-                <div id="deaths">0</div>
-                <small>Deaths</small>
-            </div>
-        </div>
-
         <div class="rank-section">
             <div class="rank-list">
                 <div class="rank-item">🟤 Bronze (0 - 499)</div>
@@ -159,6 +136,22 @@
                 <div class="rank-item">💚 Emerald (1100 - 1299)</div>
                 <div class="rank-item">🔷 Diamond (1300 - 1499)</div>
                 <div class="rank-item">👑 Champion (1500+)</div>
+            </div>
+
+            <!-- Stats moved here and kills/deaths removed -->
+            <div class="stats-center">
+                <div class="stat-box">
+                    <div id="rank">Bronze</div>
+                    <small>Current Rank</small>
+                </div>
+                <div class="stat-box">
+                    <div id="wins">0</div>
+                    <small>Wins</small>
+                </div>
+                <div class="stat-box">
+                    <div id="losses">0</div>
+                    <small>Losses</small>
+                </div>
             </div>
         </div>
     </section>
@@ -170,16 +163,12 @@
         const stats = {
             rank: "Gold",
             wins: 12,
-            losses: 8,
-            kills: 34,
-            deaths: 21
+            losses: 8
         };
 
         document.getElementById("rank").textContent = stats.rank;
         document.getElementById("wins").textContent = stats.wins;
         document.getElementById("losses").textContent = stats.losses;
-        document.getElementById("kills").textContent = stats.kills;
-        document.getElementById("deaths").textContent = stats.deaths;
     </script>
 </body>
 </html>
