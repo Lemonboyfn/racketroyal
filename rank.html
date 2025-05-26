@@ -9,54 +9,98 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
+
         .navbar {
             background-color: #222;
             padding: 1em 0;
             color: #fff;
         }
+
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             font-size: 24px;
             font-weight: bold;
         }
+
         .logo span {
             color: #00BFFF;
         }
+
         .navbar ul {
             list-style: none;
             display: flex;
             gap: 20px;
         }
+
         .navbar ul li a {
             color: white;
             text-decoration: none;
         }
+
         .navbar ul li a.active {
             border-bottom: 2px solid #00BFFF;
         }
+
         .container {
             padding: 2em;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .rank-list {
-            margin-top: 2em;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1em;
+
+        .stats-box {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2em;
         }
-        .rank-item {
-            padding: 1em;
-            border: 1px solid #ccc;
+
+        .stat-card {
+            background-color: #fff;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            padding: 1.5em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+        }
+
+        .stat-card h2 {
+            margin: 0;
+            font-size: 2em;
+            color: #00BFFF;
+        }
+
+        .stat-card p {
+            margin: 0;
+            color: #555;
+            font-weight: bold;
+            margin-top: 0.5em;
+        }
+
+        .rank-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5em;
+        }
+
+        .rank-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 1em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
+            font-size: 1.1em;
             gap: 10px;
-            font-size: 1.2em;
+        }
+
+        .rank-item span {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -75,18 +119,27 @@
     </nav>
 
     <section class="container">
-        <h1></h1>
-        <p></p>
+        <div class="stats-box">
+            <div class="stat-card">
+                <h2>0</h2>
+                <p>Wins</p>
+            </div>
+            <div class="stat-card">
+                <h2>0</h2>
+                <p>Losses</p>
+            </div>
+        </div>
 
         <div class="rank-list">
-            <div class="rank-item">🟤 Bronze (0 - 499)</div>
-            <div class="rank-item">🥈 Silver (500 - 699)</div>
-            <div class="rank-item">🥇 Gold (700 - 899)</div>
-            <div class="rank-item">💎 Platinum (900 - 1099)</div>
-            <div class="rank-item">💚 Emerald (1100 - 1299)</div>
-            <div class="rank-item">🔷 Diamond (1300 - 1499)</div>
-            <div class="rank-item">👑 Champion (1500+)</div>
+            <div class="rank-item">🟤 <span>Bronze</span> (0 - 499)</div>
+            <div class="rank-item">🥈 <span>Silver</span> (500 - 699)</div>
+            <div class="rank-item">🥇 <span>Gold</span> (700 - 899)</div>
+            <div class="rank-item">💎 <span>Platinum</span> (900 - 1099)</div>
+            <div class="rank-item">💚 <span>Emerald</span> (1100 - 1299)</div>
+            <div class="rank-item">🔷 <span>Diamond</span> (1300 - 1499)</div>
+            <div class="rank-item">👑 <span>Champion</span> (1500+)</div>
         </div>
     </section>
 </body>
 </html>
+ 
